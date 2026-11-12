@@ -1033,19 +1033,23 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
   text-wrap: balance;
 }
 .automation-intro p, .automation-copy > p { color: var(--muted); line-height: 1.75; }
-.automation-case { padding: 40px 0 76px; border-top: 1px solid var(--line-strong); }
-.automation-case:last-child { padding-bottom: 0; }
+.automation-case { padding: 0 0 56px; }
+.automation-case + .automation-case { margin-top: 112px; }
 .automation-case-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 12px 32px;
-  margin-bottom: 32px;
+  position: sticky;
+  top: 68px;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 28px 0;
+  margin-bottom: 40px;
+  background: var(--bg-2);
 }
-.automation-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
-.automation-name span { margin-right: 18px; color: var(--muted); font-family: var(--font-mono); font-size: 12px; font-weight: 400; }
-.automation-category { color: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+.automation-index { color: var(--muted); font-family: var(--font-mono); font-size: clamp(1.75rem, 3.4vw, 2.65rem); line-height: 1.15; }
+.automation-name { font-family: var(--font-display); font-size: clamp(1.75rem, 3.4vw, 2.65rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; text-wrap: balance; }
+.automation-category { margin-top: 12px; color: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
 .automation-browser { border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: var(--card); }
 .automation-browser-bar {
   display: flex;
@@ -1122,8 +1126,10 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
 @media (max-width: 560px) {
   #automatizaciones { scroll-margin-top: 68px; }
   .automation-head .section-title { font-size: clamp(2rem, 8.4vw, 2.9rem); }
-  .automation-case { padding-top: 28px; padding-bottom: 52px; }
-  .automation-case-head { gap: 10px; margin-bottom: 24px; }
+  .automation-case { padding-bottom: 40px; }
+  .automation-case + .automation-case { margin-top: 72px; }
+  .automation-case-head { grid-template-columns: 36px minmax(0, 1fr); gap: 16px; padding: 20px 0; margin-bottom: 28px; }
+  .automation-name, .automation-index { font-size: 1.65rem; }
   .automation-category { font-size: 11px; line-height: 1.8; }
   .automation-browser-bar { padding: 12px; gap: 10px; }
   .automation-browser-url { font-size: 9px; }
@@ -1642,10 +1648,13 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
       </div>
     </div>
 
-    <article class="automation-case" aria-labelledby="buyer-profile-title">
+    <article class="automation-case" aria-labelledby="buyer-profile-case">
       <header class="automation-case-head" data-reveal="">
-        <p class="automation-name"><span>01</span>Buyer Profile</p>
-        <p class="automation-category">PropTech · Automatización · Desarrollo web</p>
+        <span class="automation-index" aria-hidden="true">01</span>
+        <div>
+          <h3 class="automation-name" id="buyer-profile-case">Buyer Profile</h3>
+          <p class="automation-category">PropTech · Automatización · Desarrollo web</p>
+        </div>
       </header>
       <figure data-reveal="">
         <div class="automation-browser">
@@ -1661,7 +1670,7 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
         <figcaption class="automation-caption">Captura real de la aplicación · Herramienta piloto para brokers hipotecarios.</figcaption>
       </figure>
       <div class="automation-detail" data-reveal="">
-        <h3 class="automation-title" id="buyer-profile-title">De la información del comprador a un perfil inmobiliario estructurado.</h3>
+        <h4 class="automation-title" id="buyer-profile-title">De la información del comprador a un perfil inmobiliario estructurado.</h4>
         <div class="automation-copy">
           <p>Desarrollo de una herramienta digital para brokers hipotecarios que permite registrar y organizar las necesidades de búsqueda de vivienda de sus clientes.</p>
           <p>El sistema transforma la información recopilada mediante un formulario en datos estructurados, facilitando su almacenamiento, seguimiento y posterior procesamiento mediante automatizaciones.</p>
@@ -1679,10 +1688,13 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
       </div>
     </article>
 
-    <article class="automation-case" aria-labelledby="budget-agent-title">
+    <article class="automation-case" aria-labelledby="budget-agent-case">
       <header class="automation-case-head" data-reveal="">
-        <p class="automation-name"><span>02</span>Agente de presupuestos</p>
-        <p class="automation-category">IA Conversacional · Automatización · Documentos</p>
+        <span class="automation-index" aria-hidden="true">02</span>
+        <div>
+          <h3 class="automation-name" id="budget-agent-case">Agente de presupuestos</h3>
+          <p class="automation-category">IA Conversacional · Automatización · Documentos</p>
+        </div>
       </header>
       <figure class="automation-budget-art" data-reveal="">
         <div class="automation-budget-video">
@@ -1697,7 +1709,7 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
         <figcaption class="automation-caption automation-budget-caption"><span>Creatividad original del proyecto · Sin medición de tiempos verificada.</span><a href="https://www.youtube.com/watch?v=zb0A4mm35fU" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></figcaption>
       </figure>
       <div class="automation-budget" data-reveal="">
-        <h3 class="automation-title" id="budget-agent-title">De preparar presupuestos manualmente a generarlos mediante una conversación.</h3>
+        <h4 class="automation-title" id="budget-agent-title">De preparar presupuestos manualmente a generarlos mediante una conversación.</h4>
         <div class="automation-copy">
           <p>Solución de automatización desarrollada para el sector de las reformas que permite utilizar un asistente conversacional por WhatsApp para recopilar los datos de un trabajo y generar presupuestos a partir de partidas y precios previamente definidos.</p>
           <p>El objetivo es reducir las tareas administrativas y agilizar la preparación y entrega de presupuestos comerciales.</p>
@@ -1716,13 +1728,16 @@ body[data-theme="light"] .gtile .gcap { color: #fff; background: linear-gradient
       </ol>
     </article>
 
-    <article class="automation-case" aria-labelledby="auction-monitor-title">
+    <article class="automation-case" aria-labelledby="auction-monitor-case">
       <header class="automation-case-head" data-reveal="">
-        <p class="automation-name"><span>03</span>Monitor de subastas del BOE</p>
-        <p class="automation-category">Automatización · Datos · Alertas</p>
+        <span class="automation-index" aria-hidden="true">03</span>
+        <div>
+          <h3 class="automation-name" id="auction-monitor-case">Monitor de subastas del BOE</h3>
+          <p class="automation-category">Automatización · Datos · Alertas</p>
+        </div>
       </header>
       <div class="automation-detail" data-reveal="">
-        <h3 class="automation-title" id="auction-monitor-title">Un sistema que detecta nuevas oportunidades inmobiliarias.</h3>
+        <h4 class="automation-title" id="auction-monitor-title">Un sistema que detecta nuevas oportunidades inmobiliarias.</h4>
         <div class="automation-copy">
           <p>Desarrollo de una automatización para un inversor inmobiliario que necesita realizar un seguimiento de las subastas publicadas en el Portal de Subastas del BOE.</p>
           <p>El sistema revisa periódicamente las publicaciones, identifica nuevas subastas inmobiliarias que corresponden a las zonas geográficas definidas por el inversor y envía notificaciones por correo electrónico cuando encuentra oportunidades que cumplen esos criterios.</p>
